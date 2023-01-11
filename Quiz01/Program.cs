@@ -1,14 +1,12 @@
 ﻿
 //=============================MAIN PROGRAM==============================
-//uncomment for start
-
-Label0:
-Console.WriteLine("Kuis 01 C# Code.id | .Net Bootcamp");
-Console.WriteLine();
-Console.WriteLine("------------------------");
-Console.WriteLine("[1] Summary number");
+Menu:
+Console.WriteLine("+-------------------------------------------+");
+Console.WriteLine("     Kuis 01 C# Code.id | .Net Bootcamp      ");
+Console.WriteLine("+-------------------------------------------+");
+Console.WriteLine("[1] Summary number");                              
 Console.WriteLine("[2] Length of number");
-Console.WriteLine("[3] Reverse numbers");
+Console.WriteLine("[3] Reverse numbers ");
 Console.WriteLine("[4] Max number");
 Console.WriteLine("[5] The dividers");
 Console.WriteLine("[6] Prime number");
@@ -18,9 +16,9 @@ Console.WriteLine("[9] Twin strings");
 Console.WriteLine("[10] Second greatest");
 Console.WriteLine("[11] Bracket checker");
 Console.WriteLine("[12] Triangle display");
-Console.WriteLine("------------------------");
-Console.WriteLine("[99] Keluar");
-Console.WriteLine("------------------------");
+Console.WriteLine();
+Console.WriteLine("[0] Keluar");
+Console.WriteLine("+--------------------------------------------+");
 Console.WriteLine();
 
 Console.Write("Masukkan pilihan : ");
@@ -29,9 +27,9 @@ Console.Clear();
 
 switch (choice)
 {
-    case "99":
+    case "0":
         Console.WriteLine("Keluar dari program");
-        goto Label99;
+        goto Keluar;
     case "1":
         Summary();
         break;
@@ -72,7 +70,7 @@ switch (choice)
     default:
         Console.WriteLine("Pilihan yang dimasukkan tidak sesuai!");
         Console.WriteLine();
-        goto Label0;
+        goto Menu;
 }
 
 Console.Write("Apakah akan mengulang program? (y/t) : ");
@@ -81,10 +79,10 @@ var repeat = Console.ReadLine();
 if(repeat == "y" || repeat == "Y")
 {
     Console.Clear();
-    goto Label0;
+    goto Menu;
 }
 
-Label99:
+Keluar:
 
 
 static void Summary()
@@ -134,6 +132,7 @@ static void Reverse()
         Console.Write($"{num[i]} ");
     }
     Console.WriteLine();
+    Console.WriteLine();
 }
 
 static void Max()
@@ -165,6 +164,7 @@ static void Dividers()
     {
         Console.Write(num % i == 0 ? $"{i} ":"");
     }
+    Console.WriteLine();
     Console.WriteLine();
 }
 
@@ -343,7 +343,6 @@ static void TriangleDisplay()
     Console.WriteLine();
     Console.WriteLine("===========================================");
     Console.WriteLine();
-
 
     //Console.Write("Masukkan kolom : ");
     //col = int.Parse(Console.ReadLine());
