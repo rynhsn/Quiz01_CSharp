@@ -17,7 +17,7 @@ Console.WriteLine("[10] Second greatest");
 Console.WriteLine("[11] Bracket checker");
 Console.WriteLine("[12] Triangle display");
 Console.WriteLine();
-Console.WriteLine("[0] Keluar");
+Console.WriteLine("[99] Keluar");
 Console.WriteLine("+--------------------------------------------+");
 Console.WriteLine();
 
@@ -27,7 +27,7 @@ Console.Clear();
 
 switch (choice)
 {
-    case "0":
+    case "99":
         Console.WriteLine("Keluar dari program");
         goto Keluar;
     case "1":
@@ -73,17 +73,27 @@ switch (choice)
         goto Menu;
 }
 
+Repeat:
 Console.Write("Apakah akan mengulang program? (y/t) : ");
 var repeat = Console.ReadLine();
+Console.Clear();
 
 if(repeat == "y" || repeat == "Y")
 {
-    Console.Clear();
     goto Menu;
+}
+else if(repeat == "t" || repeat == "T")
+{
+    goto Keluar;
+}
+else
+{
+    Console.Clear();
+    Console.WriteLine("Masukan tidak dikenali : ");
+    goto Repeat;
 }
 
 Keluar:
-
 
 static void Summary()
 {
