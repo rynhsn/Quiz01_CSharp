@@ -63,9 +63,8 @@ switch (choice)
         SecondGreatest();
         break;
     case "11":
-        Console.Write("Masukkan kurung kurawal : ");
-        var kurung = Console.ReadLine();
-        Console.WriteLine(CheckKurawal(kurung));
+        Console.WriteLine(CheckKurawal());
+        Console.WriteLine();
         break;
     case "12":
         TriangleDisplay();
@@ -87,8 +86,13 @@ if(repeat == "y" || repeat == "Y")
 
 Label99:
 
+
 static void Summary()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|       1. MENGHITUNG TOTAL ANGKA YANG DIMASUKKAN      |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter number integer : ");
     char[] num = Console.ReadLine().ToCharArray();
     int result = 0;
@@ -102,6 +106,10 @@ static void Summary()
 
 static void StringLength()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|          2. MENGHITUNG PANJANG KARAKTER              |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine(); 
     Console.Write("Enter number integer : ");
     char[] num = Console.ReadLine().ToCharArray();
     int result = 0;
@@ -115,6 +123,10 @@ static void StringLength()
 
 static void Reverse()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|             3. MEMBALIKAN URUTAN MASUKAN             |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter number integer : ");
     char[] num = Console.ReadLine().ToCharArray();
     for(var i = num.Length - 1; i >= 0; i--)
@@ -126,6 +138,10 @@ static void Reverse()
 
 static void Max()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|              4. MENCARI NILAI TERBESAR               |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     List<int> num = new();
     bool cond = true;
     while (cond) {
@@ -134,20 +150,30 @@ static void Max()
         if (input > 0) num.Add(input); else cond = false;
     }
     Console.WriteLine($"Angka terbesar : {num.Max()}");
+    Console.WriteLine();
 }
 
 static void Dividers()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|               5. MENCARI ANGKA PEMBAGI               |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter numbers : ");
     var num = int.Parse(Console.ReadLine());
     for(var i = 1; i < num; i++)
     {
         Console.Write(num % i == 0 ? $"{i} ":"");
     }
+    Console.WriteLine();
 }
 
 static void Prime()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("| 6. MENAMPILKAN BILANGAN PRIMA DENGAN LIMIT TERTENTU  |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter limit number : ");
     var num = int.Parse(Console.ReadLine());
     for (var i = 2; i < num; i++)
@@ -167,6 +193,10 @@ static void Prime()
 }
 static void SecretStrings()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|            7. MENYEMBUNYIKAN STRING TENGAH           |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter strings : ");
     var str = Console.ReadLine();
     var substr = str.Split();
@@ -190,7 +220,12 @@ static void SecretStrings()
 }
 
 
-static void Saturday() {
+static void Saturday() 
+{
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|   8. BERAPA HARI LAGI MENUJU HARI SABTU BERIKUTNYA   |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine(); 
     DateTime today = DateTime.Today;
     int daysUntilSaturday = ((int)DayOfWeek.Saturday - (int)today.DayOfWeek + 7) % 7;
     DateTime nextSaturday = today.AddDays(daysUntilSaturday);
@@ -202,6 +237,10 @@ static void Saturday() {
 
 static void SameString()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|             9. MENCARI STRING YANG SAMA              |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     Console.Write("Enter strings : ");
     string str = Console.ReadLine();
     Console.Write("Find String : ");
@@ -213,19 +252,30 @@ static void SameString()
 
 static void SecondGreatest()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|          10. MENCARI NILAI TERBESAR KEDUA            |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
     List<int> num = new();
     for(var i = 1; i <= 5; i++)
     {
         Console.Write($"Enter {i}. number: ");
         num.Add(int.Parse(Console.ReadLine()));
     }
-    var result = num.OrderByDescending(x => x).ElementAt(1);
+    var result = num.OrderByDescending(x => x).Distinct().ElementAt(1);
     Console.WriteLine($"Second Greatest : {result}");
     Console.WriteLine();
 }
 
-static bool CheckKurawal(string str)
+static bool CheckKurawal()
 {
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|         11. CEK KURUNG KURAWAL BERPASANGAN           |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine();
+    Console.Write("Masukkan kurung kurawal : ");
+    var str = Console.ReadLine();
+    Console.WriteLine();
     bool result, step = true;
     int counter = 0;
     foreach (char c in str)
@@ -244,10 +294,26 @@ static bool CheckKurawal(string str)
 
 static void TriangleDisplay()
 {
-    for(var i = 5; i < 10; i++)
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine("|             12. DISPLAY RUNTUTAN ANGKA               |");
+    Console.WriteLine("+------------------------------------------------------+");
+    Console.WriteLine(); 
+    
+    int row, col, num;
+    num = 10;
+    row = 5;
+    col = 5;
+
+    //Console.Write("Masukkan batas atas : ");
+    //num = int.Parse(Console.ReadLine());
+    //Console.Write("Masukkan jumlah baris dan kolom : ");
+    //col = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+
+    for (var i = col; i < num; i++)
     {
         //Console.WriteLine(i);
-        for (var j = 10; j > 5; j--)
+        for (var j = num; j > col; j--)
         {
             if (j > i) Console.Write($"{j} ");
         }
@@ -258,9 +324,16 @@ static void TriangleDisplay()
     Console.WriteLine("===========================================");
     Console.WriteLine();
 
-    for(var i = 1; i <= 5; i++)
+    //Console.Write("Masukkan baris : ");
+    //row = int.Parse(Console.ReadLine());
+    //Console.Write("Masukkan kolom : ");
+    //col = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+
+
+    for (var i = 1; i <= row; i++)
     {
-        for (var j = 0; j < 5; j++)
+        for (var j = 0; j < col; j++)
         {
             if (j < i) Console.Write($"{i + j} ");
         }
@@ -271,9 +344,12 @@ static void TriangleDisplay()
     Console.WriteLine("===========================================");
     Console.WriteLine();
 
-    int col = 5;
 
-    for (int i = 1; i <= col*2-1; i++)
+    //Console.Write("Masukkan kolom : ");
+    //col = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+
+    for (int i = 1; i < col*2; i++)
     {
         if (i <= col)
         {
@@ -297,13 +373,17 @@ static void TriangleDisplay()
     Console.WriteLine("===========================================");
     Console.WriteLine();
 
-    for (int i = 1; i <= 5; i++)
+    //Console.Write("Masukkan baris : ");
+    //row = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+
+    for (int i = 1; i <= row; i++)
     {
-        for (int j = 1; j <= 5 - i; j++)
+        for (int j = 1; j <= row - i; j++)
         {
             Console.Write("  ");
         }
-        for (int j = i; j <= 2 * i - 1; j++)
+        for (int j = i; j < 2 * i; j++)
         {
             Console.Write($"{j} ");
         }
