@@ -1,16 +1,91 @@
-﻿//Summary();
-//StringLength();
-//Reverse();
-//Max();
-//Dividers();
-//SecretStrings();
-//Saturday();
-//SameString();
-//SecondGreatest();
-//Console.WriteLine(CheckKurawal("{{{}}"));
-//TriangleDisplay();
-decimal a = 9.2M;
-Console.WriteLine(a);
+﻿
+//=============================MAIN PROGRAM==============================
+//uncomment for start
+
+Label0:
+Console.WriteLine("Kuis 01 C# Code.id | .Net Bootcamp");
+Console.WriteLine();
+Console.WriteLine("------------------------");
+Console.WriteLine("[1] Summary number");
+Console.WriteLine("[2] Length of number");
+Console.WriteLine("[3] Reverse numbers");
+Console.WriteLine("[4] Max number");
+Console.WriteLine("[5] The dividers");
+Console.WriteLine("[6] Prime number");
+Console.WriteLine("[7] Secret strings");
+Console.WriteLine("[8] When is saturday");
+Console.WriteLine("[9] Twin strings");
+Console.WriteLine("[10] Second greatest");
+Console.WriteLine("[11] Bracket checker");
+Console.WriteLine("[12] Triangle display");
+Console.WriteLine("------------------------");
+Console.WriteLine("[99] Keluar");
+Console.WriteLine("------------------------");
+Console.WriteLine();
+
+Console.Write("Masukkan pilihan : ");
+var choice = Console.ReadLine();
+Console.Clear();
+
+switch (choice)
+{
+    case "99":
+        Console.WriteLine("Keluar dari program");
+        goto Label99;
+    case "1":
+        Summary();
+        break;
+    case "2":
+        StringLength();
+        break;
+    case "3":
+        Reverse();
+        break;
+    case "4":
+        Max();
+        break;
+    case "5":
+        Dividers();
+        break;
+    case "6":
+        Prime();
+        break;
+    case "7":
+        SecretStrings();
+        break;
+    case "8":
+        Saturday();
+        break;
+    case "9":
+        SameString();
+        break;
+    case "10":
+        SecondGreatest();
+        break;
+    case "11":
+        Console.Write("Masukkan kurung kurawal : ");
+        var kurung = Console.ReadLine();
+        Console.WriteLine(CheckKurawal(kurung));
+        break;
+    case "12":
+        TriangleDisplay();
+        break;
+    default:
+        Console.WriteLine("Pilihan yang dimasukkan tidak sesuai!");
+        Console.WriteLine();
+        goto Label0;
+}
+
+Console.Write("Apakah akan mengulang program? (y/t) : ");
+var repeat = Console.ReadLine();
+
+if(repeat == "y" || repeat == "Y")
+{
+    Console.Clear();
+    goto Label0;
+}
+
+Label99:
 
 static void Summary()
 {
@@ -71,6 +146,25 @@ static void Dividers()
     }
 }
 
+static void Prime()
+{
+    Console.Write("Enter limit number : ");
+    var num = int.Parse(Console.ReadLine());
+    for (var i = 2; i < num; i++)
+    {
+        bool result = true;
+        for(var j = 2; j < i; j++)
+        {
+            if (i % j == 0)
+            {
+                result = false;
+                break;
+            }
+        }
+        if(result) Console.Write($"{i} ");
+    }
+    Console.WriteLine();
+}
 static void SecretStrings()
 {
     Console.Write("Enter strings : ");
@@ -92,7 +186,9 @@ static void SecretStrings()
     {
         Console.Write(r);
     }
+    Console.WriteLine();
 }
+
 
 static void Saturday() {
     DateTime today = DateTime.Today;
@@ -101,6 +197,7 @@ static void Saturday() {
 
     Console.WriteLine($"Hari Sabtu : {nextSaturday.ToShortDateString()}");
     Console.WriteLine($"{daysUntilSaturday} hari lagi!");
+    Console.WriteLine();
 }
 
 static void SameString()
@@ -111,6 +208,7 @@ static void SameString()
     string substr = Console.ReadLine();
     int count = (str.Length - str.Replace(substr, "").Length) / substr.Length;
     Console.WriteLine($"Total kata yang muncul : {count} kali dari text {str}");
+    Console.WriteLine();
 }
 
 static void SecondGreatest()
@@ -123,6 +221,7 @@ static void SecondGreatest()
     }
     var result = num.OrderByDescending(x => x).ElementAt(1);
     Console.WriteLine($"Second Greatest : {result}");
+    Console.WriteLine();
 }
 
 static bool CheckKurawal(string str)
@@ -172,9 +271,11 @@ static void TriangleDisplay()
     Console.WriteLine("===========================================");
     Console.WriteLine();
 
-    for (int i = 1; i <= 7; i++)
+    int col = 5;
+
+    for (int i = 1; i <= col*2-1; i++)
     {
-        if (i <= 4)
+        if (i <= col)
         {
             for (int j = 1; j <= i; j++)
             {
@@ -184,7 +285,7 @@ static void TriangleDisplay()
         }
         else
         {
-            for (int j = 1; j <= 8 - i; j++)
+            for (int j = 1; j <= col*2 - i; j++)
             {
                 Console.Write($"{j} ");
             }
